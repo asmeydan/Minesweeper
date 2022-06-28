@@ -1,3 +1,4 @@
 #Minesweeper
 
-[preview](https://codepen.io/asmeydan/pen/YzazQzM?editors=0010)
+
+[demo](https://codepen.io/asmeydan/pen/YzazQzM?editors=0010)
