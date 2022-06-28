@@ -1,5 +1,5 @@
-//* SIFIR OYUN HARİTASI
-const harita = {
+//* BLANK GAME MAP
+const maps = {
     "1":"0",   "2":"0",   "3":"0",   "4":"0",   "5":"0",   "6":"0",    "7":"0",   "8":"0",   "9":"0",   "10":"0",
     "11":"0",  "12":"0",  "13":"0",  "14":"0",  "15":"0",  "16":"0",   "17":"0",  "18":"0",  "19":"0",  "20":"0",
     "21":"0",  "22":"0",  "23":"0",  "24":"0",  "25":"0",  "26":"0",   "27":"0",  "28":"0",  "29":"0",  "30":"0",
@@ -58,7 +58,7 @@ function numbers() {
     
     allnums.push(num1, num2, num3,num4,num5,num6,num7,num8,num9,num10)
     allnums.forEach((e)=> {
-        harita[e] = "*"
+        maps[e] = "*"
     })
     console.log(allnums)
 
@@ -66,114 +66,114 @@ function numbers() {
         const v = [] ;
         var value = 0;
 
-        //? EN ÜST SIRA SAYILARI
-        if(i<10 && !(i == 1) && !(harita[i] == "*")) {
-            v.push(harita[i-1],harita[i+9],harita[i+10],harita[i+11],harita[i+1])
+        //? TOP CORNER
+        if(i<10 && !(i == 1) && !(maps[i] == "*")) {
+            v.push(maps[i-1],maps[i+9],maps[i+10],maps[i+11],maps[i+1])
             for(let i = 0; i < v.length; i++){
                 
                 if(v[i] == "*") {
                     value += 1
                 }
             }
-            harita[i] = value;
+            maps[i] = value;
         }
         
-        //? SOL ÜST KÖŞE SAYISI
-        if(i == 1 && !(harita[i] == "*")) {
-            v.push(harita[i+1],harita[i+10],harita[i+11])
+        //? TOP LEFT CORNER
+        if(i == 1 && !(maps[i] == "*")) {
+            v.push(maps[i+1],maps[i+10],maps[i+11])
             for(let i = 0; i < v.length; i++){
                 
                 if(v[i] == "*") {
                     value += 1
                 }
             }
-            harita[i] = value;
+            maps[i] = value;
         }
 
-        //? SAĞ ÜST KÖŞE SAYISI
-        if(i == 10 && !(harita[i] == "*")) {
-            v.push(harita[i-1],harita[i+9],harita[i+10])
+        //? TOP RIGHT CORNER
+        if(i == 10 && !(maps[i] == "*")) {
+            v.push(maps[i-1],maps[i+9],maps[i+10])
             for(let i = 0; i < v.length; i++){
                 
                 if(v[i] == "*") {
                     value += 1
                 }
             }
-            harita[i] = value;
+            maps[i] = value;
         }
 
-        //? SOL ALT KÖŞE SAYISI
-        if(i == 71 && !(harita[i] == "*")) {
-            v.push(harita[i-10],harita[i-9],harita[i+1])
+        //? BOTTOM LEFT CORNER
+        if(i == 71 && !(maps[i] == "*")) {
+            v.push(maps[i-10],maps[i-9],maps[i+1])
             for(let i = 0; i < v.length; i++){
                 
                 if(v[i] == "*") {
                     value += 1
                 }
             }
-            harita[i] = value;
+            maps[i] = value;
         }
 
-        //? SAĞ ALT KÖŞE SAYISI
-        if(i == 80 && !(harita[i] == "*")) {
-            v.push(harita[i-11],harita[i-10],harita[i-1])
+        //? BOTTOM RIGHT CORNER
+        if(i == 80 && !(maps[i] == "*")) {
+            v.push(maps[i-11],maps[i-10],maps[i-1])
             for(let i = 0; i < v.length; i++){
                 
                 if(v[i] == "*") {
                     value += 1
                 }
             }
-            harita[i] = value;
+            maps[i] = value;
         }
         
-        //? SOL KENAR SAYILARI
-        if(!(i == 1) && !(i == 71) && (i%10 == 1) && !(harita[i] == "*")) {
-            v.push(harita[i-10],harita[i-9],harita[i+1],harita[i+10],harita[i+11])
+        //? LEFT EDGE
+        if(!(i == 1) && !(i == 71) && (i%10 == 1) && !(maps[i] == "*")) {
+            v.push(maps[i-10],maps[i-9],maps[i+1],maps[i+10],maps[i+11])
             for(let i = 0; i < v.length; i++){
                 
                 if(v[i] == "*") {
                     value += 1
                 }
             }
-            harita[i] = value;
+            maps[i] = value;
         }
 
-        //? SAĞ KENAR SAYILARI
-        if(!(i == 10) && !(i == 80) && (i%10 == 0) && !(harita[i] == "*")) {
-            v.push(harita[i-11],harita[i-10],harita[i-1],harita[i+9],harita[i+10])
+        //? RIGHT EDGE
+        if(!(i == 10) && !(i == 80) && (i%10 == 0) && !(maps[i] == "*")) {
+            v.push(maps[i-11],maps[i-10],maps[i-1],maps[i+9],maps[i+10])
             for(let i = 0; i < v.length; i++){
                 
                 if(v[i] == "*") {
                     value += 1
                 }
             }
-            harita[i] = value;
+            maps[i] = value;
         }
 
-        //? ALT KENAR SAYILARI
-        if(!(i == 71) && !(i == 80) && (i > 70) && !(harita[i] == "*")) {
-            v.push(harita[i-1],harita[i-11],harita[i-10],harita[i-9],harita[i+1])
+        //? BOTTOM EDGE
+        if(!(i == 71) && !(i == 80) && (i > 70) && !(maps[i] == "*")) {
+            v.push(maps[i-1],maps[i-11],maps[i-10],maps[i-9],maps[i+1])
             for(let i = 0; i < v.length; i++){
                 
                 if(v[i] == "*") {
                     value += 1
                 }
             }
-            harita[i] = value;
+            maps[i] = value;
         }
 
-        //? ORTADAKİ SAYILAR
+        //? MIDDLE NUMBERS
         if(!(i == 1) && !(i == 71) && !(i == 10) && !(i == 80) && !(i < 11) && !(i > 70) && 
-        !(i%10 == 1) && !(i%10 == 0) && !(harita[i] == "*")) {
-            v.push(harita[i-11],harita[i-10],harita[i-9],harita[i-1],
-                harita[i+1],harita[i+9],harita[i+10],harita[i+11])
+        !(i%10 == 1) && !(i%10 == 0) && !(maps[i] == "*")) {
+            v.push(maps[i-11],maps[i-10],maps[i-9],maps[i-1],
+                maps[i+1],maps[i+9],maps[i+10],maps[i+11])
             for(let i = 0; i < v.length; i++){
                 
                 if(v[i] == "*") {
                     value += 1
                 }
             }
-            harita[i] = value;
+            maps[i] = value;
         }
 
     }
@@ -182,4 +182,4 @@ numbers()
 
 
 
-export {numbers,harita}
+export {numbers,maps}

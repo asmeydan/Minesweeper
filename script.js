@@ -1,5 +1,5 @@
-import {numbers,harita} from "./maps.js"
-console.log(harita)
+import {numbers,maps} from "./maps.js"
+console.log(maps)
 
 const block = document.getElementsByClassName("block");
 const cover = document.getElementsByClassName("cover");
@@ -12,8 +12,8 @@ const btn = document.querySelectorAll("button");
 
 
 
-//? OYUN HARİTASI
-const map = harita
+//? MAP
+const map = maps
 
 
 container.addEventListener("click",(e)=> {
@@ -95,7 +95,7 @@ container.addEventListener("click",(e)=> {
                             around.push(parseInt(e)+11)
                         }
                     }
-                    //? SOL ÜST KÖŞE
+                    //? TOP LEFT CORNER
                     if(map[e] == "0" && (e == 1)){
                         if(!around.includes(parseInt(e)+1)) {
                             around.push(parseInt(e)+1)
@@ -107,7 +107,7 @@ container.addEventListener("click",(e)=> {
                             around.push(parseInt(e)+11)
                         }
                     }
-                    //? SOL ALT KÖŞE
+                    //? BOTTOM LEFT CORNER
                     if(map[e] == "0" && (e == 71)){
                         if(!around.includes(parseInt(e)+1)) {
                             around.push(parseInt(e)+1)
@@ -119,7 +119,7 @@ container.addEventListener("click",(e)=> {
                             around.push(parseInt(e)-9)
                         }
                     }
-                    //? SAĞ ALT KÖŞE
+                    //? BOTTOM RİGHT CORNER
                     if(map[e] == "0" && (e == 80)){
                         if(!around.includes(parseInt(e)-11)) {
                             around.push(parseInt(e)-11)
@@ -131,7 +131,7 @@ container.addEventListener("click",(e)=> {
                             around.push(parseInt(e)-1)
                         }
                     }
-                    //? SAĞ ÜST KÖŞE
+                    //? TOP RİGHT CORNER
                     if(map[e] == "0" && (e == 10)){
                         if(!around.includes(parseInt(e)-1)) {
                             around.push(parseInt(e)-1)
@@ -143,7 +143,7 @@ container.addEventListener("click",(e)=> {
                             around.push(parseInt(e)+10)
                         }
                     }
-                    //?  ÜST KENAR
+                    //?  TOP EDGE
                     if(map[e] == "0" && (e > 1) && (e < 10)){
                         if(!around.includes(parseInt(e)-1)) {
                             around.push(parseInt(e)-1)
@@ -161,7 +161,7 @@ container.addEventListener("click",(e)=> {
                             around.push(parseInt(e)+11)
                         }
                     }
-                    //?  SOL KENAR
+                    //?  LEFT EDGE
                     if(map[e] == "0" && (e%10 == 1) && !(e == 71) && !(e == 1)){
                         if(!around.includes(parseInt(e)-10)) {
                             around.push(parseInt(e)-10)
@@ -179,7 +179,7 @@ container.addEventListener("click",(e)=> {
                             around.push(parseInt(e)+11)
                         }
                     }
-                    //?  SAĞ KENAR
+                    //?  RİGHT EDGE
                     if(map[e] == "0" && (e%10 == 0) && !(e == 10) && !(e == 80)){
                         if(!around.includes(parseInt(e)-11)) {
                             around.push(parseInt(e)-11)
@@ -197,7 +197,7 @@ container.addEventListener("click",(e)=> {
                             around.push(parseInt(e)+9)
                         }
                     }
-                    //?  ALT KENAR
+                    //?  BOTTOM EDGE
                     if(map[e] == "0" && (e < 80) && (e > 71)){
                         if(!around.includes(parseInt(e)-11)) {
                             around.push(parseInt(e)-11)
@@ -226,7 +226,7 @@ container.addEventListener("click",(e)=> {
     }
 
     if(map[elementId] == "*") {
-        console.log("mayına bastın")
+        console.log("mine")
         finish.style.display = "flex"
         lose.style.display = "flex"
     }
